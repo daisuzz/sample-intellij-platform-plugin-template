@@ -5,14 +5,20 @@
     <vendor>daisuzz</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>Git4Idea</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.daisuzz.sampleintellijplatformplugintemplate.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.daisuzz.sampleintellijplatformplugintemplate.services.MyProjectService"/>
+        <notificationGroup displayType="TOOL_WINDOW" id="Sample intellij platform plugin template"/>
     </extensions>
 
-    <applicationListeners>
-        <listener class="com.github.daisuzz.sampleintellijplatformplugintemplate.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+    <actions>
+        <action id="com.github.daisuzz.sampleintellijplatformplugintemplate.action.CopyGitHubUrlAction"
+                class="com.github.daisuzz.sampleintellijplatformplugintemplate.action.CopyGitHubUrlAction"
+                text="Sample Intellij Platform Plugin Template"
+                description="Sample intellij platform plugin template">
+            <keyboard-shortcut first-keystroke="control alt C" keymap="$default"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+
 </idea-plugin>
